@@ -38,7 +38,7 @@ live_loop :e do
 end
 
 live_loop :f do
-  use_synth :prophet
-  play choose([:c3, :eb3, :g3]), cutoff: rrand(70, 130), wave: choose([0, 1, 2])
+  use_synth :tb303
+  play choose([:c2, :eb2, :g2]), cutoff: rrand(70, 130), wave: choose([0, 1, 2]), amp: 0.069
   sleep 1
 end
