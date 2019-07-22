@@ -54,4 +54,7 @@ end
 live_loop :beatsbydanny do
   sample :bd_klub, amp: 2, cutoff: rrand(100, 130), res: rrand(0.5, 0.99)
   sleep 1
+  sample :bd_klub, amp: 2, cutoff: rrand(100, 130), res: rrand(0.5, 0.99)
+  sample :sn_dub, cutoff: rrand(90, 120), res: 0.69
+  sleep 1
 end
