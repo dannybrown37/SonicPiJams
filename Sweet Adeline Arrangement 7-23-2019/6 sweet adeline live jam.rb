@@ -7,7 +7,11 @@ live_loop :bass do
 end
 
 live_loop :hat do
-  sample :drum_cymbal_closed, cutoff: rrand(101, 120), res: rrand(0.5, 0.99)
+  15.times do
+    sample :drum_cymbal_closed, cutoff: rrand(101, 120), res: rrand(0.5, 0.99)
+    sleep 0.125
+  end
+  sample :drum_cymbal_open, cutoff: rrand(101, 120), res: rrand(0.5, 0.99), release: 0.125
   sleep 0.125
 end
 
@@ -49,17 +53,17 @@ live_loop :lengthy_riff do
   use_synth :prophet
   16.times do
     notes = (ring :f4, :g4, :a4, :b4).tick
-    play notes, release: 1.5, cutoff: rrand(70, 130)
+    play notes, release: 2.2, cutoff: rrand(70, 130)
     sleep 2
   end
   12.times do
     notes = (ring :bb5, :c5, :cs5, :b5).tick
-    play notes, release: 1.5, cutoff: rrand(70, 130)
+    play notes, release: 2.2, cutoff: rrand(70, 130)
     sleep 2
   end
   4.times do
     notes = (ring :bb5, :c5, :b5, :d5).tick
-    play notes, release: 1.5, cutoff: rrand(70, 130)
+    play notes, release: 2.2, cutoff: rrand(70, 130)
     sleep 2
   end
 end
