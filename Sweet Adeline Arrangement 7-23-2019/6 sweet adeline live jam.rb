@@ -51,20 +51,27 @@ end
 
 live_loop :lengthy_riff do
   use_synth :prophet
-  16.times do
-    notes = (ring :f4, :g4, :a4, :b4).tick
-    play notes, release: 2.2, cutoff: rrand(70, 130)
-    sleep 2
-  end
-  12.times do
-    notes = (ring :bb5, :c5, :cs5, :b5).tick
-    play notes, release: 2.2, cutoff: rrand(70, 130)
-    sleep 2
-  end
-  4.times do
-    notes = (ring :bb5, :c5, :b5, :d5).tick
-    play notes, release: 2.2, cutoff: rrand(70, 130)
-    sleep 2
+  with_fx :echo do
+    with_fx :flanger do
+      with_fx :octaver do
+        with_fx :vowel do
+          16.times do
+            notes = (ring :f4, :g4, :a4, :b4).tick
+            play notes, release: 2.2, cutoff: rrand(110, 130)
+            sleep 2
+          end
+          12.times do
+            notes = (ring :bb5, :c5, :cs5, :b5).tick
+            play notes, release: 2.2, cutoff: rrand(110, 130)
+            sleep 2
+          end
+          4.times do
+            notes = (ring :bb5, :c5, :b5, :d5).tick
+            play notes, release: 2.2, cutoff: rrand(110, 130)
+            sleep 2
+          end
+        end
+      end
+    end
   end
 end
-
