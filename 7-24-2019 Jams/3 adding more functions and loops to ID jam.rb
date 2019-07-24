@@ -21,14 +21,14 @@ end
 
 live_loop :melody do
   use_random_seed 69
-  melody_randomizer :b4, :minor, 4
-  melody_randomizer :bb4, :major, 4
-  melody_randomizer :b4, :major, 4
-  melody_randomizer :g4, :major, 4
-  melody_randomizer :bb4, :major, 4
-  melody_randomizer :a4, :major, 4
-  melody_randomizer :fs4, :minor, 4
-  melody_randomizer :g4, :major, 4
+  melody_randomizer :b5, :minor, 4
+  melody_randomizer :bb5, :major, 4
+  melody_randomizer :b5, :major, 4
+  melody_randomizer :g5, :major, 4
+  melody_randomizer :bb5, :major, 4
+  melody_randomizer :a5, :major, 4
+  melody_randomizer :fs5, :minor, 4
+  melody_randomizer :g5, :major, 4
 end
 
 live_loop :high_chords do
