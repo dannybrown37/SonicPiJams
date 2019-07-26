@@ -84,17 +84,18 @@ define :hat_3 do
 end
 
 define :hat_4 do
+  open_finish = 0.1
   6.times do
     sample chat
     sleep 0.5
-    sample ohat, finish: 0.2
+    sample ohat, finish: open_finish
     sleep 0.5
   end
   2.times do
     sample chat
     sleep 0.5
   end
-  sample ohat, finish: 0.2
+  sample ohat, finish: open_finish
   sleep 0.5
   sample chat
   sleep 0.5
