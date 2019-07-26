@@ -293,26 +293,25 @@ end
 define :hat_pattern_11 do
   open = 0.15
   qtr_open = 0.05
-  sample ohat, finish: open
-  sleep 0.5
   2.times do
-    sample ohat, finish: qtr_open
-    sleep 0.25
-  end
-  open = 0.15
-  qtr_open = 0.05
-  sample ohat, finish: open
-  sleep 0.5
-  2.times do
-    sample ohat, finish: qtr_open
-    sleep 0.25
-  end
-  2.times do
-    sample ohat, finish: qtr_open
-    sleep 0.5
     sample ohat, finish: open
     sleep 0.5
+    2.times do
+      sample ohat, finish: qtr_open
+      sleep 0.25
+    end
   end
+  2.times do
+    sample ohat, finish: qtr_open
+    sleep 0.5
+  end
+  sample ohat, finish: open
+  sleep 0.5
+  sample ohat, finish: qtr_open
+  sleep 0.5
+  # start measure 2
+  sample ohat, finish: open
+  sleep 0.5
   2.times do
     sample ohat, finish: qtr_open
     sleep 0.25
@@ -328,6 +327,7 @@ define :hat_pattern_11 do
   sample ohat, finish: qtr_open
   sleep 0.5
 end
+
 
 define :hat_pattern_12 do
   open = 0.2
@@ -396,11 +396,11 @@ end
 use_bpm 69
 
 live_loop :hat do
-  hat_pattern_sixteenth
+  hat_pattern_11
 end
 
 live_loop :kick do
-  kick_1 :bd_haus
+  kick_11 :bd_haus
 end
 
 live_loop :snare do
