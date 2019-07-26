@@ -2,21 +2,21 @@ chat = :drum_cymbal_closed
 ohat = :drum_cymbal_open
 hat_pedal = :drum_cymbal_pedal
 
-define :quarter_chh do
+define :hat_pattern_quarter do
   4.times do
     sample chat
     sleep 1
   end
 end
 
-define :eighth_chh do
+define :hat_pattern_eighth do
   8.times do
     sample chat
     sleep 0.5
   end
 end
 
-define :sixteenth_chh do
+define :hat_pattern_sixteenth do
   16.times do
     sample chat, cutoff: rrand(100,130)
     sleep 0.25
@@ -393,14 +393,14 @@ end
 
 ################################
 
-use_bpm 120
+use_bpm 69
 
 live_loop :hat do
-  hat_pattern_14
+  hat_pattern_sixteenth
 end
 
 live_loop :kick do
-  kick_5 :bd_haus
+  kick_1 :bd_haus
 end
 
 live_loop :snare do
