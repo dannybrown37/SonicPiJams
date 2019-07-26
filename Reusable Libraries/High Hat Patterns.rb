@@ -404,5 +404,5 @@ live_loop :kick do
 end
 
 live_loop :snare do
-  snare_offbeat
+  snare_offbeat :sn_generic
 end

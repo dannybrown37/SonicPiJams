@@ -1,15 +1,14 @@
 use_bpm 120
 
-define :snare_offbeat do
-  snare = :sn_generic
+define :snare_offbeat do |snare_name|
   sleep 1
-  sample snare
+  sample snare_name
   sleep 2
-  sample snare
+  sample snare_name
   sleep 2
-  sample snare
+  sample snare_name
   sleep 2
-  sample snare
+  sample snare_name
   sleep 1
 end
 
@@ -260,6 +259,6 @@ live_loop :kick do
 end
 
 live_loop :snare do
-  snare_offbeat
+  snare_offbeat :sn_generic
 end
 
