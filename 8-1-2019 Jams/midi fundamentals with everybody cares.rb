@@ -17,7 +17,6 @@ end
 use_bpm 120
 
 live_loop :everybody_cares_chords do
-  use_synth :prophet
   2.times do
     midi_chord chord(:e3,:minor), 32
     midi_chord chord(:g3,:major), 32
@@ -31,11 +30,13 @@ live_loop :everybody_cares_chords do
   midi_chord chord(:c3, :major), 8
   midi_chord chord(:b2, :m7), 32
   # chorus
-  midi_chord chord(:g3, :major), 16
-  midi_chord chord(:f3, :major), 8
-  midi_chord chord(:c3, :major), 8
-  midi_chord chord(:e3, :minor), 16
-  midi_chord chord(:b2, :m7), 16
+  2.times do
+    midi_chord chord(:g3, :major), 16
+    midi_chord chord(:f3, :major), 8
+    midi_chord chord(:c3, :major), 8
+    midi_chord chord(:e3, :minor), 16
+    midi_chord chord(:b2, :m7), 16
+  end
 end
 
 
