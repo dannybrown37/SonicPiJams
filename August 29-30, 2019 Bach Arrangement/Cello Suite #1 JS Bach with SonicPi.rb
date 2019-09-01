@@ -1,6 +1,3 @@
-use_synth :tb303
-use_bpm 120
-
 measure_1 = [:g2, :d3, :b3, :a3, :b3, :d3, :b3, :d3].ring
 measure_2 = [:g2, :e3, :c4, :b3, :c4, :e3, :c4, :e3].ring
 measure_3 = [:g2, :fs3, :c4, :b3, :c4, :fs3, :c4, :fs3].ring
@@ -30,7 +27,8 @@ measure_18 = [:g2, :fs3, :c4, :b3, :c4, :fs3, :c4, :fs3].ring
 measure_19a = [:g2, :d3, :b3, :a3, :b3, :g3, :fs3, :e3].ring
 measure_19b = [:d3, :c3, :b2, :a2, :g2, :fs2, :e2, :d2].ring
 measure_20 = [:cs2, :a2, :e3, :fs3, :g3, :e3, :fs3, :g3].ring
-measure_21a = [:c2, :a2, :d3, :fs3, :a3, :cs4, :d4].ring # fermata here
+measure_20point5 = [:c2, :a2, :d3, :e3, :fs3, :d3, :e3, :fs3].ring
+measure_21a = [:c2, :a2, :d3, :fs3, :a3, :cs4].ring
 measure_21b = [:r, :a2, :b2, :c3, :d3, :e3, :fs3, :g3].ring
 measure_22a = [:a3, :fs3, :d3, :e3, :fs3, :g3, :a3, :b3].ring
 measure_22b = [:c4, :a3, :fs3, :g3, :a3, :b3, :c4, :d4].ring
@@ -47,13 +45,27 @@ measure_27b = [:a2, :d3, :cs3, :b2, :a2, :g2, :fs2, :e2].ring
 measure_28a = [:d2, :r, :c4, :b3, :a3, :g3, :fs3, :e3].ring
 measure_28b = [:d3, :c4, :b3, :a3, :g3, :fs3, :e3, :d3].ring
 measure_29a = [:c3, :b3, :a3, :g3, :fs3, :e3, :d3, :c3].ring
-measure_29b = [:b2, :a3, :g3, :fs3, :e3, :d3, :c3, :b3].ring
+measure_29b = [:b2, :a3, :g3, :fs3, :e3, :d3, :c3, :b2].ring
+measure_30a = [:a2, :g3, :fs3, :e3, :fs3, :a3, :d3, :a3].ring
+measure_30b = [:e3, :a3, :fs3, :a3, :g3, :a3, :e3, :a3].ring
+measure_31 = [:fs3, :a3, :d3, :a3, :g3, :a3, :e3, :a3].ring
+measure_32a = [:fs3, :a3, :d3, :a3, :e3, :a3, :fs3, :a3].ring
+measure_32b = [:g3, :a3, :a3, :a3, :b3, :a3, :d3, :a3].ring
+measure_33a = [:a3, :a3, :b3, :a3, :c4, :a3, :d3, :a3].ring
+measure_33b = [:b3, :a3, :c3, :a3, :d4, :a3, :b3, :a3].ring
+measure_34a = [:c4, :a3, :b3, :a3, :c3, :a3, :a3, :a3].ring
+measure_34b = [:b3, :a3, :a3, :a3, :b3, :a3, :g3, :a3].ring
+measure_35a = [:a3, :a3, :g3, :a3, :a3, :a3, :fs3, :a3].ring
+measure_35b = [:g3, :a3, :fs3, :a3, :g3, :a3, :e3, :a3].ring
+measure_36a = [:fs3, :a3, :d3, :e3, :f3, :d3, :fs3, :d3].ring
+measure_36b = [:g3, :d3, :gs3, :d3, :a3, :d3, :bb3, :d3].ring
+measure_37a = [:b3, :d3, :c4, :d3, :cs4, :d3, :d4, :d3].ring
+measure_37b = [:eb4, :d3, :e4, :d3, :f4, :d3, :fs4, :d3].ring
+measure_38 = [:g4, :b3, :d3, :b3, :g4, :b3, :g4, :b3].ring
+measure_39 = [:g4, :a3, :d3, :a3, :g4, :a3, :g4, :a3].ring
+measure_40 = [:fs4, :c4, :d3, :c4, :fs4, :c4, :fs4, :c4].ring
 #measure_ = [:, :, :, :, :, :, :, :].ring
 
-
-"""
-
-"""
 piece = [
   measure_1, measure_1,
   measure_2, measure_2,
@@ -75,6 +87,7 @@ piece = [
   measure_18, measure_18,
   measure_19a, measure_19b,
   measure_20, measure_20,
+  measure_20point5, measure_20point5,
   measure_21a, measure_21b,
   measure_22a, measure_22b,
   measure_23a, measure_23b,
@@ -84,16 +97,28 @@ piece = [
   measure_27a, measure_27b,
   measure_28a, measure_28b,
   measure_29a, measure_29b,
+  measure_30a, measure_30b,
+  measure_31, measure_31,
+  measure_32a, measure_32b,
+  measure_33a, measure_33b,
+  measure_34a, measure_34b,
+  measure_35a, measure_35b,
+  measure_36a, measure_36b,
+  measure_37a, measure_37b,
+  measure_38, measure_38,
+  measure_39, measure_39,
+  measure_40, measure_40,
 ].ring
 
+use_synth :tb303
+use_bpm 80
 sleep_time = 0.25
 sus_time = 0.01
 pan_time = 0.2
 rel_time = 0.26
-slow_down_measure = [0.66, 0.66, 0.66, 0.66, 0.68, 0.68, 4]
 
 1.times do
-  with_fx :lpf do"""
+  with_fx :lpf do
     play_pattern_timed piece[0], sleep_time, sustain: sus_time, pan_slide: pan_time, release: rel_time, cutoff: rrand(60, 130)
     play_pattern_timed piece[1], sleep_time, sustain: sus_time, pan_slide: pan_time, release: rel_time, cutoff: rrand(60, 130)
     play_pattern_timed piece[2], sleep_time, sustain: sus_time, pan_slide: pan_time, release: rel_time, cutoff: rrand(60, 130)
@@ -132,12 +157,13 @@ slow_down_measure = [0.66, 0.66, 0.66, 0.66, 0.68, 0.68, 4]
     play_pattern_timed piece[35], sleep_time, sustain: sus_time, pan_slide: pan_time, release: rel_time, cutoff: rrand(60, 130)
     play_pattern_timed piece[36], sleep_time, sustain: sus_time, pan_slide: pan_time, release: rel_time, cutoff: rrand(60, 130)
     play_pattern_timed piece[37], sleep_time, sustain: sus_time, pan_slide: pan_time, release: rel_time, cutoff: rrand(60, 130)
-"""
     play_pattern_timed piece[38], sleep_time, sustain: sus_time, pan_slide: pan_time, release: rel_time, cutoff: rrand(60, 130)
     play_pattern_timed piece[39], sleep_time, sustain: sus_time, pan_slide: pan_time, release: rel_time, cutoff: rrand(60, 130)
-    play_pattern_timed piece[40], slow_down_measure
+    play_pattern_timed piece[40], sleep_time, sustain: sus_time, pan_slide: pan_time, release: rel_time, cutoff: rrand(60, 130)
     play_pattern_timed piece[41], sleep_time, sustain: sus_time, pan_slide: pan_time, release: rel_time, cutoff: rrand(60, 130)
-    play_pattern_timed piece[42], sleep_time, sustain: sus_time, pan_slide: pan_time, release: rel_time, cutoff: rrand(60, 130)
+    play_pattern_timed piece[42], [0.35, 0.35, 0.45, 0.45, 0.55, 0.65], sustain: 0.33, pan_slide: pan_time, release: 0.33, cutoff: rrand(60, 130)
+    play :d4, sustain: 3, pan_slide: pan_time, release: 1, cutoff: rrand(60, 130)
+    sleep 4.20
     play_pattern_timed piece[43], sleep_time, sustain: sus_time, pan_slide: pan_time, release: rel_time, cutoff: rrand(60, 130)
     play_pattern_timed piece[44], sleep_time, sustain: sus_time, pan_slide: pan_time, release: rel_time, cutoff: rrand(60, 130)
     play_pattern_timed piece[45], sleep_time, sustain: sus_time, pan_slide: pan_time, release: rel_time, cutoff: rrand(60, 130)
@@ -152,6 +178,36 @@ slow_down_measure = [0.66, 0.66, 0.66, 0.66, 0.68, 0.68, 4]
     play_pattern_timed piece[55], sleep_time, sustain: sus_time, pan_slide: pan_time, release: rel_time, cutoff: rrand(60, 130)
     play_pattern_timed piece[56], sleep_time, sustain: sus_time, pan_slide: pan_time, release: rel_time, cutoff: rrand(60, 130)
     play_pattern_timed piece[57], sleep_time, sustain: sus_time, pan_slide: pan_time, release: rel_time, cutoff: rrand(60, 130)
+    play_pattern_timed piece[58], sleep_time, sustain: sus_time, pan_slide: pan_time, release: rel_time, cutoff: rrand(60, 130)
+    play_pattern_timed piece[59], sleep_time, sustain: sus_time, pan_slide: pan_time, release: rel_time, cutoff: rrand(60, 130)
+    play_pattern_timed piece[60], sleep_time, sustain: sus_time, pan_slide: pan_time, release: rel_time, cutoff: rrand(60, 130)
+    play_pattern_timed piece[61], sleep_time, sustain: sus_time, pan_slide: pan_time, release: rel_time, cutoff: rrand(60, 130)
+    play_pattern_timed piece[62], sleep_time, sustain: sus_time, pan_slide: pan_time, release: rel_time, cutoff: rrand(60, 130)
+    play_pattern_timed piece[63], sleep_time, sustain: sus_time, pan_slide: pan_time, release: rel_time, cutoff: rrand(60, 130)
+    play_pattern_timed piece[64], sleep_time, sustain: sus_time, pan_slide: pan_time, release: rel_time, cutoff: rrand(60, 130)
+    play_pattern_timed piece[65], sleep_time, sustain: sus_time, pan_slide: pan_time, release: rel_time, cutoff: rrand(60, 130)
+    play_pattern_timed piece[66], sleep_time, sustain: sus_time, pan_slide: pan_time, release: rel_time, cutoff: rrand(60, 130)
+    play_pattern_timed piece[67], sleep_time, sustain: sus_time, pan_slide: pan_time, release: rel_time, cutoff: rrand(60, 130)
+    play_pattern_timed piece[68], sleep_time, sustain: sus_time, pan_slide: pan_time, release: rel_time, cutoff: rrand(60, 130)
+    play_pattern_timed piece[69], sleep_time, sustain: sus_time, pan_slide: pan_time, release: rel_time, cutoff: rrand(60, 130)
+    play_pattern_timed piece[70], sleep_time, sustain: sus_time, pan_slide: pan_time, release: rel_time, cutoff: rrand(60, 130)
+    play_pattern_timed piece[71], sleep_time, sustain: sus_time, pan_slide: pan_time, release: rel_time, cutoff: rrand(60, 130)
+    play_pattern_timed piece[72], sleep_time, sustain: sus_time, pan_slide: pan_time, release: rel_time, cutoff: rrand(60, 130)
+    play_pattern_timed piece[73], sleep_time, sustain: sus_time, pan_slide: pan_time, release: rel_time, cutoff: rrand(60, 130)
+    play_pattern_timed piece[74], sleep_time, sustain: sus_time, pan_slide: pan_time, release: rel_time, cutoff: rrand(60, 130)
+    play_pattern_timed piece[75], sleep_time, sustain: sus_time, pan_slide: pan_time, release: rel_time, cutoff: rrand(60, 130)
+    play_pattern_timed piece[76], sleep_time, sustain: sus_time, pan_slide: pan_time, release: rel_time, cutoff: rrand(60, 130)
+    play_pattern_timed piece[77], sleep_time, sustain: sus_time, pan_slide: pan_time, release: rel_time, cutoff: rrand(60, 130)
+    play_pattern_timed piece[78], sleep_time, sustain: sus_time, pan_slide: pan_time, release: rel_time, cutoff: rrand(60, 130)
+    play_pattern_timed piece[79], sleep_time, sustain: sus_time, pan_slide: pan_time, release: rel_time, cutoff: rrand(60, 130)
+    play_pattern_timed piece[80], sleep_time, sustain: sus_time, pan_slide: pan_time, release: rel_time, cutoff: rrand(60, 130)
+    play_pattern_timed piece[81], sleep_time, sustain: sus_time, pan_slide: pan_time, release: rel_time, cutoff: rrand(60, 130)
+    play :g2, sustain: 3.5, release: 1
+    sleep 0.5
+    play :b3, sustain: 3, release: 1, attacK: 1
+    play :g4, sustain: 2, release: 1, attack: 2
+    sleep 8
+    
   end
 end
 
